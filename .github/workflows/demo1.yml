@@ -5,8 +5,18 @@ on:
       # Lists can also be mentioned like this
       # - opened
       # - edited
+    branches:
+      - master
+      - 'dev-*' # * any character other than forward slash /
+      - 'feat/**' # ** allows for any characters = forward slashes
   workflow_dispatch:
-  
+  push:
+    branches:
+      - master
+      - 'dev-*' # * any character other than forward slash /
+      - 'feat/**' # ** allows for any characters = forward slashes
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
